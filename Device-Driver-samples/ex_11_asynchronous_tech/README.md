@@ -10,6 +10,9 @@ other process for other tasks, when the I/O is ready, a signal(usually SIGIO)
 is send to the process which interrupts the current process to let the I/O
 event can be processed in time.
 
+<img width="1536" height="1024" alt="asy" src="https://github.com/user-attachments/assets/65384248-8c97-41e9-b548-da414c8fee65" />
+
+
 In this example, we write a simple device driver which implements the basic
 asynchronous notification mechansim. When some processes write any data to
 the device file, the process who set the file descriptor as async will receive
@@ -39,6 +42,18 @@ then run:
 sh load_module.sh
 ```
 
+##  Working Flow
+
+COMPILE - make builds kernel module using specified or current kernel headers
+
+DEPLOY - sh load_module.sh transfers and inserts .ko module into kernel
+
+CONFIGURE - Test program opens device file and registers SIGIO signal handler
+
+TRIGGER - Writing to device file causes driver to send SIGIO to registered process
+
+HANDLE - Signal handler processes notification, reads data, and outputs results
+
 ## test the module
 
 To test this kernel module, first compile and copy the test program loacated
@@ -65,4 +80,3 @@ Hello World!
 
 ---
 
-### ¶ The end
