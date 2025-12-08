@@ -1,9 +1,9 @@
 # **SHORT Memory-Mapped I/O (MMIO) Driver**
 
-## **  Project Overview**
+##   Project Overview
 This Linux kernel module demonstrates **Memory-Mapped I/O (MMIO)** - a technique where hardware registers appear as regular memory locations. Instead of using special I/O instructions, you can read/write hardware by simply accessing specific memory addresses. It's like hardware becomes part of your computer's memory!
 
-## **  Quick Start Guide**
+##   Quick Start Guide
 
 ### **Build & Install:**
 ```bash
